@@ -1,8 +1,8 @@
 <?php
-			define('DB_SERVER', 'mysql.hostinger.com.br');
-			define('DB_USERNAME', 'u906862614_banco');
-			define('DB_PASSWORD', 'schooly');
-			define('DB_DATABASE', 'u906862614_banco');
+			define('DB_SERVER', '');
+			define('DB_USERNAME', '');
+			define('DB_PASSWORD', '');
+			define('DB_DATABASE', '');
 			session_start();
 			
 				if(!isset($_SESSION['email_user'])){
