@@ -30,7 +30,7 @@
 	$query2 = "INSERT INTO usuario_papel (usuario_id, papel_id) VALUES ('$id', '$papel')";
 	$result3 = $db->query($query2);
 
-	header("Location:../index.php");
+	header("Location:../login.php");
 
 	
 
