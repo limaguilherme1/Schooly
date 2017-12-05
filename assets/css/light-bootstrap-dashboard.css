@@ -1054,6 +1054,7 @@ body > .navbar-collapse[data-color="purple"]:after {
   padding: 0px 0px;
   margin: 0px 5px;
   text-align: center;
+ 
 }
 .table .radio .icons,
 .table .checkbox .icons {
@@ -1302,9 +1303,7 @@ body > .navbar-collapse[data-color="purple"]:after {
   cursor: pointer;
 }
 
-.has-switch input[type=checkbox] {
-  display: none;
-}
+
 
 .has-switch span {
   /*     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2) inset; */

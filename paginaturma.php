@@ -62,7 +62,7 @@
 			<div class="content">
 				<div class="container-fluid">
 					<div class="row">
-						<div class="col-md-4">
+						<div class="col-md-3">
 							<div class="card card-user">
 								<div class="image">
 									<img src="https://ununsplash.imgix.net/photo-1431578500526-4d9613015464?fit=crop&fm=jpg&h=300&q=75&w=400" alt="..." />
@@ -98,8 +98,8 @@
 							
 							<!-- INICIO CARD DESEMPENHO -->
 							<?php
-							$pontosPercen = round(($pontosAluno/150) * 100);
-							$pontosRest = 150 - $pontosAluno;
+							$pontosPercen = round(($pontosAluno/200) * 100);
+							$pontosRest = 200 - $pontosAluno;
 							if($row3['papel_id'] != 2){
 							echo "	
 							<div class='card'>
@@ -132,7 +132,7 @@
 						
 						<!-- FINAL CARD DESEMPENHO -->
 						
-						<div class="col-md-8">
+						<div class="col-md-9">
 
 							<!-- CARD ATIVIDADES -->
 
@@ -153,7 +153,10 @@
 														<th ><b>Pontuação:</b></th>
 														<?php
 														if($row3['papel_id'] == 2 && $idprof == $row['id']){
-															echo "<th><b>Apagar:</b></th>";
+															echo "<th><b>Apagar:</b></th>
+																		<th><b>Corrigir:</b></th>
+															
+															";
 															}
 															?>
 													</tr>
@@ -171,7 +174,15 @@
 																			<td>". $rowAtividades['pontos'] . "</td>";
 																		if($row3['papel_id'] == 2 && $idprof == $row['id']){
 																		echo "<td><a  href='apagarAtividade.php?id=". $rowAtividades['id'] ."&turma=". $turma . "' onclick='return checkDelete()' type='button' rel='tooltip' title='Excluir' class='btn btn-danger btn-simple btn-xs'>
-                                          <i class='fa fa-times'></i></td></tr>";
+                                          <i class='fa fa-times'></i></td>
+																					<td><a href='corrigirAtividade.php?id=". $rowAtividades['id'] ."&turma=". $turma . "' type='button'";
+																			if($rowAtividades['corrigida'] == 1){
+																				echo "disabled";
+																			}  
+																			 echo "rel='tooltip' title='Corrigir' class='btn btn-simple btn-xs'> 
+																				<i class='pe-7s-pen'></i></td></tr>
+																					
+																					";
 																		}
 																else{
 																	echo "</tr>";
@@ -308,7 +319,7 @@
 												<table class="table table-hover">
 													<tbody>
 														<?php 
-																						$queryUID = "SELECT nome, sobrenome, usuario.id FROM usuario LEFT JOIN (turmas, usuario_turma) ON (turmas.id = usuario_turma.turma_id AND usuario.id = usuario_turma.usuario_id) WHERE turmas.id = '$turma' ";
+																						$queryUID = "SELECT nome, sobrenome, usuario.id FROM usuario LEFT JOIN (turmas, usuario_turma) ON (turmas.id = usuario_turma.turma_id AND usuario.id = usuario_turma.usuario_id) WHERE turmas.id = '$turma' ORDER BY usuario.nome DESC";
 																						$result3 = $db->query($queryUID);																				
 																						if($result3->num_rows > 0){
 																							while($rowUID = $result3->fetch_assoc()){
